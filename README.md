@@ -7,7 +7,7 @@ This image has been prepared for laravel 8 projects that run on PHP 8.0
 To use this image as your base image generate a file that has the name `Dockerfile` and put this piece of code on top of it.
 
 ```sh
-from:nozkok/php80-laravel8:8.0.0
+FROM nozkok/php80-laravel8:8.0.0
 ```
 
 Then add your custom commands.
@@ -15,7 +15,7 @@ Then add your custom commands.
 In its simplest form you can use this image just like this:
 
 ```sh
-from:nozkok/php80-laravel8:8.0.0
+FROM nozkok/php80-laravel8:8.0.0
 
 COPY ./ /var/www
 
@@ -52,12 +52,12 @@ stdout_logfile=/var/www/storage/logs/supervisor-panel-worker.log
 Finally, your `Dockerfile` should be like to run with supervisord:
 
 ```sh
-from:nozkok/php80-laravel8:8.0.0
+FROM nozkok/php80-laravel8:8.0.0
 
 COPY ./laravel-worker.conf /etc/supervisor/conf.d/
 COPY ./ /var/www
 
-EXPOSE 9000
+EXPOSE 8000
 
 CMD ["sh", "-c", "/usr/bin/supervisord -c /etc/supervisor/supervisord.conf && php-fpm"]
 ```
