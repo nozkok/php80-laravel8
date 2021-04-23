@@ -19,7 +19,7 @@ FROM nozkok/php80-laravel8:8.0.0
 
 COPY ./ /var/www
 
-EXPOSE 8000
+EXPOSE 9000
 
 CMD ["sh", "-c", "php-fpm"]
 ```
@@ -57,7 +57,7 @@ FROM nozkok/php80-laravel8:8.0.0
 COPY ./laravel-worker.conf /etc/supervisor/conf.d/
 COPY ./ /var/www
 
-EXPOSE 8000
+EXPOSE 9000
 
 CMD ["sh", "-c", "/usr/bin/supervisord -c /etc/supervisor/supervisord.conf && php-fpm"]
 ```
